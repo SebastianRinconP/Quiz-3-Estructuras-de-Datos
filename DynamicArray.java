@@ -48,10 +48,10 @@ public class DynamicArray<T> {
         if (size == 0) {
             throw new IllegalStateException("La estructura está vacía");
         }
-        T value = data[size - 1];
-        data[size - 1] = null; // evitamos referencia colgada (memory leak)
-        size--;
-        return value;
+        T value = data[size - 1]; //Lee
+        data[size - 1] = null; // Limpia
+        size--; //Disminuye el tamaño
+        return value;    //Devuelve el valor
     }
 
     @SuppressWarnings("unchecked")
