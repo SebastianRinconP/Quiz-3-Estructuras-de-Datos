@@ -1,7 +1,38 @@
-public class Main
-{
-	public static void main(String[] args) {
-   
+package src;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Snake inicial: cola en (0,0), cabeza en (0,1)
+        Snake snake = new Snake(2);
+        snake.addHead(new Position(0, 0)); // esto sería la cola inicial
+        snake.addHead(new Position(0, 1)); // esto sería la cabeza inicial
+
+        // Simulamos un movimiento hacia la derecha sin comer:
+        Position newHead = new Position(0, 2);
+
+        // "colision" revisaría si newHead coincide con alguna posición actual
+        boolean choco = false;
+        for (int i = 0; i < snake.size(); i++) {
+            if (snake.get(i).equals(newHead)) {
+                choco = true;
+            }
+        }
+
+        if (!choco) {
+            snake.addHead(newHead);   // se agrega la nueva cabeza
+            snake.removeTail();       // se quita la cola anterior (no comió)
+        }
+
+        // Imprimir el estado actual de la serpiente
+        for (int i = 0; i < snake.size(); i++) {
+            Position p = snake.get(i);
+            System.out.println("Segmento " + i + ": fila=" + p.row() + ", columna=" + p.column());
+        }
+    }
+}
+
+/*
         DynamicArray<String> arr = new DynamicArray<>(4);
 
         arr.append("A");
@@ -36,4 +67,4 @@ public class Main
         System.out.println("size: " + nums.size());     // 3
         System.out.println("capacity: " + nums.capacity()); // 4
 	}
-}
+         */

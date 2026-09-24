@@ -1,3 +1,4 @@
+package src;
 public class DynamicArray<T> {
     private T[] data;
     private int size;
@@ -38,7 +39,7 @@ public class DynamicArray<T> {
     public void append(T value) {
         if (size == capacity) {
             resize(capacity * 2); 
-            //Si esta lleno dubplica capacidad y lo copia
+            //Si esta lleno duplica capacidad y lo copia
         }
         data[size] = value;
         size++;
