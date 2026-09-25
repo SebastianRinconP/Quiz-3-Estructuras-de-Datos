@@ -62,6 +62,7 @@ public class Snake {
             newData[i] = data[i];
         }
         data = newData;
+        tailIndex = 0; //Para que no copie los datos perdidos o Null
         capacity = newCapacity;
     }
 }
