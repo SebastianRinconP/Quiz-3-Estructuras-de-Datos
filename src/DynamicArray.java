@@ -9,9 +9,9 @@ public class DynamicArray<T> {
         if (initialCapacity < 1) {
             throw new IllegalArgumentException("initialCapacity debe ser >= 1");
         }
-        capacity = initialCapacity;
-        size = 0;
-        data = (T[]) new Object[capacity];
+        this.capacity = initialCapacity;
+        this.size = 0;
+        this.data = (T[]) new Object[capacity];
     }
 
     public int size() {
